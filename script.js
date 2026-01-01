@@ -23,7 +23,7 @@ const videosConfig = [
         views: "1.2K"
     },
     {
-        id: "9bZkp7q19f0",
+        id: "bwcNXOXzm_Q",
         title: "How to Change Oil Like a Pro",
         category: "maintenance",
         description: "Step-by-step guide to maintaining your motorcycle.",
@@ -32,7 +32,7 @@ const videosConfig = [
         views: "5.1K"
     },
     {
-        id: "Ks-_Mh1QhMc",
+        id: "g9-Wta9_Kec",
         title: "5 Essential Riding Tips for Beginners",
         category: "tips",
         description: "Master these fundamental techniques to become a better rider.",
@@ -41,7 +41,7 @@ const videosConfig = [
         views: "22K"
     },
     {
-        id: "E7wJTI-VRHY",
+        id: "QZ9NeD_s5wU",
         title: "Weekend Ride Vlog",
         category: "rides",
         description: "Casual ride with fellow enthusiasts.",
