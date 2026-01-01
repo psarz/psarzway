@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MotoDrive - Raw motorcycle adventures and vlogging content. Watch bike reviews, ride vlogs, maintenance guides, and riding tips.">
+    <meta name="keywords" content="motorcycle, vlogging, reviews, rides, tips, motorcycle channel, bike vlog">
+    <meta property="og:title" content="MotoDrive - Motorcycle Vlogging">
+    <meta property="og:description" content="Explore the road, one ride at a time">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#ff3b3b">
+    <title>Psarz's Way - Motorcycle Vlogging</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>🏍️</text></svg>">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>🏍️ Psarz's Way</h1>
+            </div>
+            <nav class="nav">
+                <button class="menu-toggle" id="menuToggle">☰</button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="#videos">Videos</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#subscribe">Subscribe</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h2>Raw Motorcycle Adventures</h2>
+            <p>Exploring the road, one ride at a time</p>
+            <a href="https://www.youtube.com/@psarz" target="_blank" class="btn btn-primary">Subscribe on YouTube</a>
+        </div>
+    </section>
+
+    <!-- Featured Video -->
+    <section class="featured-video">
+        <div class="container">
+            <h2>Latest Video</h2>
+            <div class="video-container" id="featuredVideo">
+                <div class="loading">Loading...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos Grid -->
+    <section class="videos-section" id="videos">
+        <div class="container">
+            <h2>All Videos</h2>
+            
+            <!-- Filters -->
+            <div class="filters">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search videos...">
+                <select id="categoryFilter" class="category-filter">
+                    <option value="">All Categories</option>
+                    <option value="reviews">Reviews</option>
+                    <option value="rides">Rides</option>
+                    <option value="maintenance">Maintenance</option>
+                    <option value="tips">Tips & Tricks</option>
+                </select>
+            </div>
+
+            <!-- Videos Grid -->
+            <div class="videos-grid" id="videosGrid">
+                <div class="loading">Loading videos...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube Shorts Section -->
+    <section class="shorts-section">
+        <div class="container">
+            <h2>YouTube Shorts</h2>
+            <p class="shorts-subtitle">Quick tips and clips from our adventures</p>
+            <div class="shorts-grid" id="shortsGrid">
+                <div class="short-card">
+                    <a href="https://www.youtube.com/@psarz/shorts" target="_blank" class="short-link">
+                        <div class="short-icon">📱</div>
+                        <p>Watch Our Shorts</p>
+                    </a>
+                </div>
+                <div class="short-card">
+                    <a href="https://www.youtube.com/@psarz/shorts" target="_blank" class="short-link">
+                        <div class="short-icon">⚡</div>
+                        <p>Quick Clips</p>
+                    </a>
+                </div>
+                <div class="short-card">
+                    <a href="https://www.youtube.com/@psarz/shorts" target="_blank" class="short-link">
+                        <div class="short-icon">🔥</div>
+                        <p>Latest Shorts</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter" id="subscribe">
+        <div class="container">
+            <h2>Stay Updated</h2>
+            <p>Get notified when new videos drop</p>
+            <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Psarz's Way</h3>
+                    <p>Raw motorcycle adventures and vlogging with passion.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow</h3>
+                    <ul>
+                        <li><a href="https://www.youtube.com/@psarz" target="_blank">YouTube</a></li>
+                        <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+                        <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Links</h3>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#privacy">Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Psarz's Way. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div class="modal" id="videoModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-video" id="modalVideo"></div>
+            <div class="modal-info" id="modalInfo"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
