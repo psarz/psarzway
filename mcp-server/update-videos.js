@@ -36,11 +36,11 @@ async function updateVideos() {
     
     console.log(`✅ Total videos fetched: ${allYoutubeVideos.length}\n`);
     
-    // Format videos and filter out shorts (videos under 60 seconds)
+    // Format videos and filter out shorts (videos under 100 seconds are shorts)
     const allVideos = allYoutubeVideos.map(video => formatVideoData(video));
-    const videos = allVideos.filter(video => video.durationInSeconds >= 60);
+    const videos = allVideos.filter(video => video.durationInSeconds >= 100);
     
-    console.log(`✅ Filtered to ${videos.length} long-form videos (shorts excluded)\n`);
+    console.log(`✅ Filtered to ${videos.length} long-form videos (videos under 100 seconds excluded)\n`);
     
     console.log('📹 Videos to update:');
     videos.forEach((v, i) => {

@@ -95,10 +95,17 @@ async function getChannelVideos(channelId, maxResults = 50, pageToken = null) {
  * Format video object for script.js
  */
 function formatVideoData(youtubeVideo) {
+  // Clean description: remove newlines, escape quotes, and truncate
+  const cleanDescription = youtubeVideo.snippet.description
+    .substring(0, 150)
+    .replace(/\n/g, ' ') // Replace newlines with spaces
+    .replace(/"/g, '\\"') // Escape quotes
+    .trim();
+  
   return {
     id: youtubeVideo.id,
-    title: youtubeVideo.snippet.title,
-    description: youtubeVideo.snippet.description.substring(0, 150), // First 150 chars
+    title: youtubeVideo.snippet.title.replace(/"/g, '\\"'), // Escape quotes in title too
+    description: cleanDescription,
     duration: formatDuration(youtubeVideo.contentDetails.duration),
     date: formatDate(youtubeVideo.snippet.publishedAt),
     views: formatViews(youtubeVideo.statistics.viewCount),

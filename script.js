@@ -14,15 +14,6 @@
 //
 const videosConfig = [
     {
-        id: "inPEpiGFIFk",
-        title: "1 January 2026",
-        category: "rides",
-        description: "",
-        duration: "1:03",
-        date: "2026-01-01",
-        views: "202"
-    },
-    {
         id: "bwcNXOXzm_Q",
         title: "30 December 2025",
         category: "rides",
@@ -39,15 +30,6 @@ const videosConfig = [
         duration: "1:41:48",
         date: "2025-12-24",
         views: "164"
-    },
-    {
-        id: "uCd1A-7U2Ig",
-        title: "20 December 2025",
-        category: "rides",
-        description: "",
-        duration: "1:29",
-        date: "2025-12-20",
-        views: "190"
     },
     {
         id: "QZ9NeD_s5wU",
@@ -68,42 +50,6 @@ const videosConfig = [
         views: "18"
     },
     {
-        id: "x-tcxGk8n7I",
-        title: "Mekedatu viewpoint | Kaveri river | DJI mini 4 pro",
-        category: "rides",
-        description: "",
-        duration: "1:35",
-        date: "2025-12-08",
-        views: "47"
-    },
-    {
-        id: "ESv5UUNL3sM",
-        title: "28 November 2025",
-        category: "rides",
-        description: "",
-        duration: "1:00",
-        date: "2025-11-28",
-        views: "15"
-    },
-    {
-        id: "vqCMbbRFJ8k",
-        title: "can't we keep our city clean? people with no civic sense | Bangalore #bbmp",
-        category: "rides",
-        description: "",
-        duration: "1:05",
-        date: "2025-11-28",
-        views: "13"
-    },
-    {
-        id: "krRYTuJhdMM",
-        title: "28 November 2025",
-        category: "rides",
-        description: "",
-        duration: "1:01",
-        date: "2025-11-28",
-        views: "749"
-    },
-    {
         id: "gnZ-riTWhH4",
         title: "19 Nov 2025 | alone & stronger 💪",
         category: "rides",
@@ -111,15 +57,6 @@ const videosConfig = [
         duration: "3:17",
         date: "2025-11-19",
         views: "3"
-    },
-    {
-        id: "9a_Gn6WhY0s",
-        title: "16 Nov 2025",
-        category: "rides",
-        description: "",
-        duration: "1:27",
-        date: "2025-11-16",
-        views: "216"
     },
     {
         id: "_ABpp1Ta9Zw",
@@ -167,15 +104,6 @@ const videosConfig = [
         views: "236"
     },
     {
-        id: "KrAZ3-ZYAiM",
-        title: "Bateshwar Dham – The Sacred Land of 108 Shiva Temples | Drone View | Yamuna River, Agra",
-        category: "rides",
-        description: "Experience the divine beauty of Bateshwar Dham, a hidden spiritual gem located near Bah, Agra, Uttar Pradesh. Perched gracefully on the serene banks o",
-        duration: "1:25",
-        date: "2025-11-06",
-        views: "17"
-    },
-    {
         id: "j66qYAXkC4Q",
         title: "Morning Serenity | Drone View of a Lush Green Lake in Golden Light 🌿☀️",
         category: "rides",
@@ -183,15 +111,6 @@ const videosConfig = [
         duration: "3:36",
         date: "2025-11-04",
         views: "20"
-    },
-    {
-        id: "1DYEFTbjdms",
-        title: "electronic City lake",
-        category: "rides",
-        description: "",
-        duration: "1:01",
-        date: "2025-11-01",
-        views: "6"
     },
     {
         id: "9AsWkOa5Ejk",
@@ -203,33 +122,6 @@ const videosConfig = [
         views: "16"
     },
     {
-        id: "tFbSNXqfuqQ",
-        title: "Bateswar, Agra",
-        category: "rides",
-        description: "",
-        duration: "1:19",
-        date: "2025-10-20",
-        views: "84"
-    },
-    {
-        id: "jNAS1aSccJs",
-        title: "17 Oct 2025",
-        category: "rides",
-        description: "",
-        duration: "1:00",
-        date: "2025-10-18",
-        views: "50"
-    },
-    {
-        id: "vnRQhGhRMl4",
-        title: "Bateshwar Yamuna..",
-        category: "rides",
-        description: "",
-        duration: "1:04",
-        date: "2025-10-15",
-        views: "279"
-    },
-    {
         id: "fQAl5HrqoVM",
         title: "Dji vlog 3 | 15 October 2025",
         category: "rides",
@@ -239,24 +131,6 @@ const videosConfig = [
         views: "16"
     },
     {
-        id: "fGVFJH6gSqk",
-        title: "15 October 2025",
-        category: "rides",
-        description: "",
-        duration: "1:02",
-        date: "2025-10-15",
-        views: "148"
-    },
-    {
-        id: "z6K7ZYzA_tM",
-        title: "Rampur Chandrasaini, Bah, Agra | DJI MINI 4 Pro",
-        category: "rides",
-        description: "",
-        duration: "1:39",
-        date: "2025-10-14",
-        views: "125"
-    },
-    {
         id: "f5jR_Di8zOw",
         title: "Gaon X DJI MINI 4 Pro",
         category: "rides",
@@ -264,24 +138,6 @@ const videosConfig = [
         duration: "1:51",
         date: "2025-10-14",
         views: "284"
-    },
-    {
-        id: "K_dj2UHD__g",
-        title: "cleaning bot..",
-        category: "rides",
-        description: "",
-        duration: "1:01",
-        date: "2025-10-11",
-        views: "144"
-    },
-    {
-        id: "U_xV-jHWZvI",
-        title: "cycling..",
-        category: "rides",
-        description: "",
-        duration: "1:16",
-        date: "2025-10-09",
-        views: "22"
     },
     {
         id: "rIoKTqUsYuo",
@@ -410,42 +266,6 @@ const videosConfig = [
         views: "68"
     },
     {
-        id: "2y4SK_lktZ0",
-        title: "Nh44 - Nagpur Sioni",
-        category: "rides",
-        description: "",
-        duration: "1:01",
-        date: "2025-05-04",
-        views: "6"
-    },
-    {
-        id: "CXQvwyHLcxc",
-        title: "Hyderabad - outer ring road",
-        category: "rides",
-        description: "",
-        duration: "1:01",
-        date: "2025-05-04",
-        views: "22"
-    },
-    {
-        id: "LJUIYnNoFBc",
-        title: "70mai x800 video sample",
-        category: "rides",
-        description: "",
-        duration: "1:01",
-        date: "2025-04-29",
-        views: "14"
-    },
-    {
-        id: "hqmuRs1TTMI",
-        title: "R15v4",
-        category: "reviews",
-        description: "took the test ride of Aprilia tuono 457, I was able to reach 100+ speed on the testing road then I tried to achieve max speed with r15v4, I was able t",
-        duration: "1:11",
-        date: "2025-04-28",
-        views: "9"
-    },
-    {
         id: "Ggu2PaGRqpU",
         title: "Nice road part 1",
         category: "rides",
@@ -527,15 +347,6 @@ const videosConfig = [
         views: "3.0K"
     },
     {
-        id: "8xMhBqv51yw",
-        title: "2, Bangalore",
-        category: "rides",
-        description: "",
-        duration: "1:03",
-        date: "2022-12-02",
-        views: "27"
-    },
-    {
         id: "_3qe-oGTSpc",
         title: "Bangalore fort",
         category: "rides",
@@ -566,12 +377,7 @@ const videosConfig = [
         id: "lqKqehDCmr4",
         title: "hyderabad",
         category: "rides",
-        description: "I captured this video in my journey from Agra to Bangalore, on day 2 Nagpur to Hyderabad.
-
-#ridesafe
-#soloride
-#r15m
-#india",
+        description: "I captured this video in my journey from Agra to Bangalore, on day 2 Nagpur to Hyderabad.  #ridesafe #soloride #r15m #india",
         duration: "3:16",
         date: "2022-07-03",
         views: "39"
@@ -580,11 +386,7 @@ const videosConfig = [
         id: "uIIOuO3BxbI",
         title: "Hyderabad to Nagpur",
         category: "reviews",
-        description: "In this video you can see my journey from Hyderabad to Nagpur.
-Travel Date: 21 Dec 2022.
-Trip name: Bangalore to Agra by R15M.
-
-Shot on : GoPro hero 9",
+        description: "In this video you can see my journey from Hyderabad to Nagpur. Travel Date: 21 Dec 2022. Trip name: Bangalore to Agra by R15M.  Shot on : GoPro hero 9",
         duration: "15:27",
         date: "2022-06-05",
         views: "50"
@@ -593,8 +395,7 @@ Shot on : GoPro hero 9",
         id: "WAeKAAGNYns",
         title: "Bangalore to Hyderabad",
         category: "rides",
-        description: "This is video from my journey from Bangalore to Agra, Day 1, I stayed at Hyderabad.  
-Travel date: 20 Dec 2021.",
+        description: "This is video from my journey from Bangalore to Agra, Day 1, I stayed at Hyderabad.   Travel date: 20 Dec 2021.",
         duration: "2:45",
         date: "2022-05-29",
         views: "69"
@@ -603,9 +404,7 @@ Travel date: 20 Dec 2021.",
         id: "TjCZqiKfOhY",
         title: "Yamaha R15M, Raw Sound, 4k, part-2",
         category: "rides",
-        description: "This is part 2 of Yamaha r15m, raw sound in 4k series, I am excited and very happy to share my experience with my youtube family.
-
-if you like my work",
+        description: "This is part 2 of Yamaha r15m, raw sound in 4k series, I am excited and very happy to share my experience with my youtube family.  if you like my work",
         duration: "5:20",
         date: "2022-04-05",
         views: "24"
