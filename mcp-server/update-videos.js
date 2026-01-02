@@ -11,22 +11,40 @@ const SCRIPT_JS_PATH = path.join(process.cwd(), '..', 'script.js');
 
 async function updateVideos() {
   try {
-    console.log('🎬 Updating videos from YouTube...\n');
+    console.log('🎬 Updating videos from YouTube (long-form only)...\n');
     
     // Get channel ID
     const channelId = await getChannelId('@psarz');
     console.log(`✅ Found channel ID: ${channelId}`);
     
-    // Get videos
-    const youtubeVideos = await getChannelVideos(channelId, 6);
-    console.log(`✅ Fetched ${youtubeVideos.length} videos\n`);
+    // Get all videos from channel (fetch in batches)
+    let allYoutubeVideos = [];
+    let pageToken = null;
+    let batchCount = 0;
+    const batchSize = 50;
+    const maxBatches = 10; // Up to 500 videos
     
-    // Format videos
-    const videos = youtubeVideos.map(video => formatVideoData(video));
+    do {
+      const youtubeVideos = await getChannelVideos(channelId, batchSize, pageToken);
+      allYoutubeVideos = allYoutubeVideos.concat(youtubeVideos);
+      pageToken = youtubeVideos.nextPageToken;
+      batchCount++;
+      console.log(`✅ Fetched batch ${batchCount} (${youtubeVideos.length} videos)`);
+      
+      if (!pageToken || batchCount >= maxBatches) break;
+    } while (pageToken);
+    
+    console.log(`✅ Total videos fetched: ${allYoutubeVideos.length}\n`);
+    
+    // Format videos and filter out shorts (videos under 60 seconds)
+    const allVideos = allYoutubeVideos.map(video => formatVideoData(video));
+    const videos = allVideos.filter(video => video.durationInSeconds >= 60);
+    
+    console.log(`✅ Filtered to ${videos.length} long-form videos (shorts excluded)\n`);
     
     console.log('📹 Videos to update:');
     videos.forEach((v, i) => {
-      console.log(`${i + 1}. ${v.title} (${v.views} views)`);
+      console.log(`${i + 1}. ${v.title.substring(0, 40)}... (${v.duration}, ${v.views} views)`);
     });
     
     // Update script.js

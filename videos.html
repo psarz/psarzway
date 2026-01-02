@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Psarz's Way - All Videos. Browse all motorcycle adventure videos from our channel.">
+    <meta name="keywords" content="motorcycle videos, adventure vlogging, travel videos, motorcycle channel">
+    <meta property="og:title" content="Psarz's Way - All Videos">
+    <meta property="og:description" content="Explore all our motorcycle adventures and travel content">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#ff3b3b">
+    <title>All Videos - Psarz's Way</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>🏍️</text></svg>">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="all-videos-page">
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>🏍️ Psarz's Way</h1>
+            </div>
+            <nav class="nav">
+                <button class="menu-toggle" id="menuToggle">☰</button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="videos.html" class="active">All Videos</a></li>
+                    <li><a href="shorts.html">Shorts</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="index.html#subscribe">Subscribe</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h2>All Videos</h2>
+            <p>Explore all our motorcycle adventures and travel content</p>
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section class="videos-section" id="videos">
+        <div class="container">
+            <div class="filters">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search videos...">
+                <select id="categoryFilter" class="category-filter">
+                    <option value="">All Categories</option>
+                    <option value="reviews">Reviews</option>
+                    <option value="rides">Rides</option>
+                    <option value="maintenance">Maintenance</option>
+                    <option value="tips">Tips & Tricks</option>
+                </select>
+            </div>
+
+            <!-- Videos Grid -->
+            <div class="videos-grid" id="videosGrid">
+                <div class="loading">Loading videos...</div>
+            </div>
+
+            <!-- Video Count -->
+            <div class="pagination">
+                <span class="pagination-info">
+                    Showing <span id="videoCount">0</span> videos
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for video player -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-video" id="modalVideo"></div>
+            <div class="modal-info" id="modalInfo"></div>
+        </div>
+    </div>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter" id="subscribe">
+        <div class="container">
+            <h2>Subscribe & Stay Updated</h2>
+            <p>Get notified about new videos and adventures</p>
+            <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="https://www.youtube.com/@psarz" target="_blank">YouTube Channel</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Content</h3>
+                    <ul>
+                        <li><a href="videos.html">All Videos</a></li>
+                        <li><a href="shorts.html">Shorts</a></li>
+                        <li><a href="https://www.youtube.com/@psarz/videos" target="_blank">YouTube Videos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: <a href="mailto:bpsb97@gmail.com">bpsb97@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Psarz's Way. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <script src="script.js"></script>
+    <script>
+        // Override loadVideos to show all on this page
+        document.addEventListener('DOMContentLoaded', () => {
+            loadVideos(); // Load ALL videos
+            updateVideoCount();
+            setupMobileMenu();
+        });
+
+        // Update video count display
+        function updateVideoCount() {
+            const count = videosConfig.length;
+            const countElement = document.getElementById('videoCount');
+            if (countElement) {
+                countElement.textContent = count;
+            }
+        }
+
+        // Setup mobile menu toggle
+        function setupMobileMenu() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            
+            if (menuToggle) {
+                menuToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                });
+            }
+            
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+
+        // Newsletter form submission
+        function handleNewsletterSubmit(e) {
+            e.preventDefault();
+            const email = e.target.querySelector('input[type="email"]').value;
+            alert(`Thank you for subscribing with ${email}!\nWe'll keep you updated on new videos.`);
+            e.target.reset();
+        }
+
+        // Update video count when search/filter changes
+        document.getElementById('searchInput').addEventListener('input', updateVideoCountOnFilter);
+        document.getElementById('categoryFilter').addEventListener('change', updateVideoCountOnFilter);
+
+        function updateVideoCountOnFilter() {
+            const search = document.getElementById('searchInput').value;
+            const category = document.getElementById('categoryFilter').value;
+            
+            const filtered = videosConfig.filter(video => {
+                const matchesSearch = !search || 
+                    video.title.toLowerCase().includes(search.toLowerCase()) ||
+                    video.description.toLowerCase().includes(search.toLowerCase());
+                
+                const matchesCategory = !category || video.category === category;
+                
+                return matchesSearch && matchesCategory;
+            });
+            
+            const countElement = document.getElementById('videoCount');
+            if (countElement) {
+                countElement.textContent = filtered.length;
+            }
+        }
+    </script>
+</body>
+</html>

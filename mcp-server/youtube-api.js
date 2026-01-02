@@ -45,7 +45,7 @@ async function getChannelId(channelHandle) {
 /**
  * Get videos from channel
  */
-async function getChannelVideos(channelId, maxResults = 10) {
+async function getChannelVideos(channelId, maxResults = 50, pageToken = null) {
   try {
     // First, get upload playlist ID
     const channelResponse = await axios.get('https://www.googleapis.com/youtube/v3/channels', {
@@ -65,7 +65,8 @@ async function getChannelVideos(channelId, maxResults = 10) {
         playlistId: uploadPlaylistId,
         key: YOUTUBE_API_KEY,
         maxResults: maxResults,
-        order: 'date'
+        order: 'date',
+        pageToken: pageToken
       }
     });
     
@@ -79,6 +80,9 @@ async function getChannelVideos(channelId, maxResults = 10) {
         key: YOUTUBE_API_KEY
       }
     });
+    
+    // Add nextPageToken to response
+    statsResponse.data.items.nextPageToken = videosResponse.data.nextPageToken;
     
     return statsResponse.data.items;
   } catch (error) {
@@ -98,8 +102,25 @@ function formatVideoData(youtubeVideo) {
     duration: formatDuration(youtubeVideo.contentDetails.duration),
     date: formatDate(youtubeVideo.snippet.publishedAt),
     views: formatViews(youtubeVideo.statistics.viewCount),
-    category: categorizeVideo(youtubeVideo.snippet.title, youtubeVideo.snippet.description)
+    category: categorizeVideo(youtubeVideo.snippet.title, youtubeVideo.snippet.description),
+    durationInSeconds: convertDurationToSeconds(youtubeVideo.contentDetails.duration)
   };
+}
+
+/**
+ * Convert PT format duration to seconds
+ */
+function convertDurationToSeconds(duration) {
+  const regex = /PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/;
+  const matches = duration.match(regex);
+  
+  if (!matches) return 0;
+  
+  const hours = parseInt(matches[1] || 0);
+  const minutes = parseInt(matches[2] || 0);
+  const seconds = parseInt(matches[3] || 0);
+  
+  return hours * 3600 + minutes * 60 + seconds;
 }
 
 /**
@@ -166,4 +187,4 @@ function categorizeVideo(title, description = '') {
   return 'rides'; // default
 }
 
-export { getChannelId, getChannelVideos, formatVideoData, formatDuration, formatDate, formatViews, categorizeVideo };
+export { getChannelId, getChannelVideos, formatVideoData, formatDuration, formatDate, formatViews, categorizeVideo, convertDurationToSeconds };
