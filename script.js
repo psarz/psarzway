@@ -14,49 +14,58 @@
 //
 const videosConfig = [
     {
-        id: "bwcNXOXzm_Q",
-        title: "Motorcycle Adventure Vlog",
+        id: "inPEpiGFIFk",
+        title: "1 January 2026",
         category: "rides",
-        description: "Raw motorcycle adventures and riding experiences.",
-        duration: "12:34",
+        description: "",
+        duration: "1:03",
+        date: "2026-01-01",
+        views: "202"
+    },
+    {
+        id: "cU7IungOy-c",
+        title: "1 January 2026",
+        category: "rides",
+        description: "",
+        duration: "0:04",
+        date: "2026-01-01",
+        views: "65"
+    },
+    {
+        id: "BM-LguoiDlM",
+        title: "31 December 2025",
+        category: "rides",
+        description: "",
+        duration: "0:50",
+        date: "2025-12-31",
+        views: "121"
+    },
+    {
+        id: "PL9uqO90KVQ",
+        title: "30 December 2025",
+        category: "rides",
+        description: "",
+        duration: "0:45",
         date: "2025-12-30",
-        views: "1.2K"
+        views: "36"
     },
     {
         id: "bwcNXOXzm_Q",
-        title: "How to Change Oil Like a Pro",
-        category: "maintenance",
-        description: "Step-by-step guide to maintaining your motorcycle.",
-        duration: "10:20",
-        date: "2025-12-20",
-        views: "5.1K"
-    },
-    {
-        id: "g9-Wta9_Kec",
-        title: "5 Essential Riding Tips for Beginners",
-        category: "tips",
-        description: "Master these fundamental techniques to become a better rider.",
-        duration: "14:15",
-        date: "2025-12-15",
-        views: "22K"
-    },
-    {
-        id: "QZ9NeD_s5wU",
-        title: "Weekend Ride Vlog",
+        title: "30 December 2025",
         category: "rides",
-        description: "Casual ride with fellow enthusiasts.",
-        duration: "9:08",
-        date: "2025-12-10",
-        views: "3.8K"
+        description: "",
+        duration: "2:05",
+        date: "2025-12-30",
+        views: "17"
     },
     {
-        id: "kffacxfA7g4",
-        title: "Motorcycle Gear Setup 2025",
-        category: "tips",
-        description: "My complete safety gear recommendations.",
-        duration: "13:42",
-        date: "2025-12-05",
-        views: "11K"
+        id: "_KqsYD2vVu4",
+        title: "30 December 2025",
+        category: "rides",
+        description: "",
+        duration: "0:34",
+        date: "2025-12-30",
+        views: "200"
     }
 ];
 
