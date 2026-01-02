@@ -654,7 +654,7 @@ const shortsGrid = document.getElementById('shortsGrid');
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
-    loadFeaturedVideo();
+    if (featuredVideo) loadFeaturedVideo();
     // Check if we're on the homepage or all videos page
     const isAllVideosPage = document.body.classList.contains('all-videos-page');
     if (isAllVideosPage) {
@@ -662,13 +662,13 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         loadVideos({}, 12); // Show only 12 videos on homepage
     }
-    loadShorts();
+    if (shortsGrid) loadShorts();
     setupEventListeners();
 });
 
 // Load featured video (latest)
 function loadFeaturedVideo() {
-    if (videosConfig.length === 0) return;
+    if (!featuredVideo || videosConfig.length === 0) return;
     
     const latest = videosConfig[0];
     const embed = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${latest.id}?autoplay=0" title="${latest.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
@@ -697,6 +697,8 @@ function createShortCard(short) {
 
 // Load and display videos (with optional limit for homepage)
 function loadVideos(filter = {}, limit = null) {
+    if (!videosGrid) return; // Exit if no videos grid on this page
+    
     const filtered = videosConfig.filter(video => {
         const matchesSearch = !filter.search || 
             video.title.toLowerCase().includes(filter.search.toLowerCase()) ||
@@ -763,11 +765,15 @@ function formatDate(dateStr) {
 
 // Open video modal
 function openVideoModal(videoId) {
+    if (!modal) return; // Skip if modal doesn't exist on this page
+    
     const video = videosConfig.find(v => v.id === videoId);
     if (!video) return;
 
     const modalVideo = document.getElementById('modalVideo');
     const modalInfo = document.getElementById('modalInfo');
+
+    if (!modalVideo || !modalInfo) return;
 
     modalVideo.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${videoId}?autoplay=1" title="${video.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
     
@@ -786,51 +792,61 @@ function openVideoModal(videoId) {
 
 // Close modal
 function closeModal() {
+    if (!modal) return; // Skip if modal doesn't exist on this page
     modal.classList.remove('active');
     document.body.style.overflow = 'auto';
-    document.getElementById('modalVideo').innerHTML = '';
+    const modalVideo = document.getElementById('modalVideo');
+    if (modalVideo) modalVideo.innerHTML = '';
 }
 
 // Setup event listeners
 function setupEventListeners() {
     // Search
-    searchInput.addEventListener('input', (e) => {
-        loadVideos({
-            search: e.target.value,
-            category: categoryFilter.value
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            loadVideos({
+                search: e.target.value,
+                category: categoryFilter ? categoryFilter.value : ''
+            });
         });
-    });
+    }
 
     // Category filter
-    categoryFilter.addEventListener('change', (e) => {
-        loadVideos({
-            search: searchInput.value,
-            category: e.target.value
+    if (categoryFilter) {
+        categoryFilter.addEventListener('change', (e) => {
+            loadVideos({
+                search: searchInput ? searchInput.value : '',
+                category: e.target.value
+            });
         });
-    });
+    }
 
     // Modal close
-    closeBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
-    });
+    if (closeBtn && modal) {
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
 
-    // Keyboard escape
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeModal();
-    });
+        // Keyboard escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+    }
 
     // Mobile menu toggle
-    menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
-
-    // Close menu when clicking nav links
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
         });
-    });
+
+        // Close menu when clicking nav links
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+    }
 
     // Update active nav link on scroll
     window.addEventListener('scroll', updateActiveNavLink);
