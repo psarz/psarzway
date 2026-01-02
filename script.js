@@ -69,6 +69,35 @@ const videosConfig = [
     }
 ];
 
+// Shorts configuration - fetched from YouTube
+const shortsConfig = [
+    {
+        id: "cU7IungOy-c",
+        title: "Quick Clip",
+        link: "https://www.youtube.com/shorts/cU7IungOy-c"
+    },
+    {
+        id: "BM-LguoiDlM",
+        title: "Ride Moment",
+        link: "https://www.youtube.com/shorts/BM-LguoiDlM"
+    },
+    {
+        id: "PL9uqO90KVQ",
+        title: "Adventure",
+        link: "https://www.youtube.com/shorts/PL9uqO90KVQ"
+    },
+    {
+        id: "bwcNXOXzm_Q",
+        title: "Highlight",
+        link: "https://www.youtube.com/shorts/bwcNXOXzm_Q"
+    },
+    {
+        id: "_KqsYD2vVu4",
+        title: "Latest",
+        link: "https://www.youtube.com/shorts/_KqsYD2vVu4"
+    }
+];
+
 // DOM Elements
 const videosGrid = document.getElementById('videosGrid');
 const searchInput = document.getElementById('searchInput');
@@ -78,11 +107,13 @@ const modal = document.getElementById('videoModal');
 const closeBtn = document.querySelector('.close');
 const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.getElementById('navMenu');
+const shortsGrid = document.getElementById('shortsGrid');
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
     loadFeaturedVideo();
     loadVideos();
+    loadShorts();
     setupEventListeners();
 });
 
@@ -93,6 +124,26 @@ function loadFeaturedVideo() {
     const latest = videosConfig[0];
     const embed = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${latest.id}?autoplay=0" title="${latest.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
     featuredVideo.innerHTML = embed;
+}
+
+// Load and display YouTube Shorts
+function loadShorts() {
+    if (!shortsGrid || shortsConfig.length === 0) return;
+    
+    shortsGrid.innerHTML = shortsConfig.map(short => createShortCard(short)).join('');
+}
+
+// Create short card HTML
+function createShortCard(short) {
+    return `
+        <a href="${short.link}" target="_blank" class="short-card">
+            <div class="short-thumbnail">
+                <img src="https://img.youtube.com/vi/${short.id}/mqdefault.jpg" alt="${short.title}">
+                <div class="short-icon">📱</div>
+            </div>
+            <p class="short-title">${short.title}</p>
+        </a>
+    `;
 }
 
 // Load and display videos
